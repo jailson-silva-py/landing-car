@@ -1,18 +1,17 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import Link  from 'next/link'
 import styles from './NavBar.module.css'
 import {motion} from 'framer-motion'
 import { HiOutlineX } from 'react-icons/hi';
 import { CiMenuFries } from 'react-icons/ci';
-import { Arapey } from 'next/font/google';
 
 const items = [
 
     
     {name:'Product', id:'#product'},
-    {name:'Brand',id:'#brand'},
+    {name:'Colors',id:'#colors'},
     {name:'Company', id:'#company'},
     {name:'About', id:'#about'},
 ]
@@ -21,11 +20,9 @@ const items = [
 
 const NavBar = () => {
 
-    const [isMobile, setIsMobile] = useState(false)
     const [hoveredItem, 
         setHoveredItem] = useState<null | string>(null)
     const [openDropdown, setOpenDropdown] = useState(false)
-    const props = {onClick:() => setOpenDropdown(false)}
 
     const ListItems = useCallback(({underline=true}) => {
 
@@ -76,8 +73,6 @@ const NavBar = () => {
     return (
 
     <nav className={styles.menuContent}>
-
-        
 
         <ul className={styles.menu}>
         
