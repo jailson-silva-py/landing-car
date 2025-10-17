@@ -45,7 +45,7 @@ const NavBar = () => {
     {items.map(item => (
 
     <li key={item.id} {...props}
-    onMouseEnter={() => {setHoveredItem(item.id)}}
+    onMouseEnter={() => setHoveredItem(item.id)}
     onMouseLeave={() => setHoveredItem(null)}>
 
         <Link href={item.id} replace>{item.name}</Link>

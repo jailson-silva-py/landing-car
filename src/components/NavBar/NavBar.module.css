@@ -1,5 +1,7 @@
 .menuContent {
 
+    position: relative;
+    z-index: 1;
     width: 100%;
     padding: 1rem 2rem;
     height: 100px;

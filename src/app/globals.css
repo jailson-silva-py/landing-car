@@ -4,6 +4,8 @@
   --bg-color: rgb(24, 22, 22);
   --btn-color: rgb(47, 76, 183);
   --btn-hover: rgb(71, 92, 163);
+  --default-shadow: rgba(255, 255, 255, 0.5);
+  --hover-accent: hsla(0, 7%, 65%, 0.266);
 }
 
 * {
@@ -12,18 +14,19 @@
   margin: 0;
 }
 
+body {overflow: visible;}
+
 html,
 body {
 
   max-width: 100vw;
   height: 100%;
   behavior: smooth;
-  overflow-x: hidden;
   background-color: var(--bg-color);
 }
 
 body {
-
+  overflow-x: hidden;
   padding: 1rem;
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
