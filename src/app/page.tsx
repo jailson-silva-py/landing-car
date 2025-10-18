@@ -1,6 +1,7 @@
 import SectionProduct from "@/components/SectionProduct/SectionProduct";
 import styles from "./page.module.css";
 import SectionColors from "@/components/SectionColors/SectionColors";
+import SectionCompany from "@/components/SectionCompany/SectionCompany";
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
      <article className={styles.contentSections}>
       <SectionProduct/>
       <SectionColors/>
+      <SectionCompany/>
 
 
      </article>
