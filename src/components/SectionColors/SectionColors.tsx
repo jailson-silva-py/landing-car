@@ -20,9 +20,14 @@ const SectionColors = () => {
 
 
     return (
-    <motion.section id="#colors" className={styles.colors}>
+    <motion.section 
+    id="#colors" className={styles.colors}>
         
-        <div className={styles.colorsContent}>
+        <motion.div className={styles.colorsContent} 
+        initial={{opacity:0}}
+        whileInView={{opacity:1}}
+        transition={{delay:1}}
+        viewport={{once:true, amount:'all'}}>
             <p className={styles.titleColors}>Escolha sua cor:</p>
             <motion.img initial={{translateX:-100}}
             animate={{translateX:0}}
@@ -55,7 +60,7 @@ const SectionColors = () => {
 
             </form>
 
-        </div>
+        </motion.div>
 
     </motion.section>   
     )

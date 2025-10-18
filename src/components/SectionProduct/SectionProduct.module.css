@@ -175,10 +175,19 @@
 
 }
 
+@keyframes rotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
 .rightUl svg, .leftUl svg {
 
     min-width: 32px;
     min-height: 32px;
+    animation: rotate 1s linear infinite;
 
 }
 
