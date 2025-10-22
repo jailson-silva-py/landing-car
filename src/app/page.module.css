@@ -1,3 +1,13 @@
+.page {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+
+}
+
 .productVideo {
 
     pointer-events: none;

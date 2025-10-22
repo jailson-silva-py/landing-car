@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Poppins} from "next/font/google";
+import { Rajdhani } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar/NavBar";
 
-const poppins = Poppins({
+const rajdhani = Rajdhani({
 
-  weight:["100", "200", "300", "400", "500", 
-    "600", "700", "800", "900"],
+  weight:["300", "400", "500", "600", "700"],
   subsets:["latin"],
   display:"swap"
 
 })
+
+
 
 export const metadata: Metadata = {
 
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" data-theme="dark">
-      <body className={`${poppins.className}`}>
+      <body className={`${rajdhani.className}`}>
         <NavBar/>
         {children}
       </body>

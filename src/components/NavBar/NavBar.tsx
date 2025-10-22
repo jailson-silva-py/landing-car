@@ -1,11 +1,18 @@
 "use client";
-
 import { useState, useCallback } from 'react';
 import Link  from 'next/link'
 import styles from './NavBar.module.css'
-import {motion} from 'framer-motion'
 import { HiOutlineX } from 'react-icons/hi';
 import { CiMenuFries } from 'react-icons/ci';
+import { Big_Shoulders_Stencil } from "next/font/google"
+
+const kapakana = Big_Shoulders_Stencil({
+
+    weight:['400'],
+    display:'swap',
+    subsets:['latin']
+
+})
 
 const items = [
 
@@ -33,7 +40,7 @@ const NavBar = () => {
        return  (
     <>
 
-    <li className={styles.logoContent}>
+    <li className={`${styles.logoContent} ${kapakana.className}`}>
         <Link className={styles.logoContent} href="/" replace>
         FexLuxAuto
         </Link>
@@ -49,10 +56,7 @@ const NavBar = () => {
 
         { underline && hoveredItem === item.id &&
 
-        <motion.div layoutId='underline'
-        className={styles.underline} initial={{width:0}} 
-        animate={{width:'100%'}}
-        transition={{type:"spring", duration:0.4}}/> 
+        <div/> 
 
         }
 
@@ -61,12 +65,11 @@ const NavBar = () => {
 
     ))}
 
-    <motion.li whileTap={{scale:1.02} }  {...props}
-    whileHover={{scale:0.98}}>
+    <li {...props}>
 
     <Link href="#book-a-call" replace>Book a call</Link>
 
-    </motion.li>
+    </li>
 
     </>)}, [hoveredItem])
 
@@ -81,24 +84,21 @@ const NavBar = () => {
 
         <div className={styles.dropdownMenuContent}>
         
-        <Link className={styles.logoContent}
+        <Link className={`${styles.logoContent} ${kapakana.className}`}
         href="/" replace>
         FexLuxAuto
         </Link>
 
-        <motion.button whileHover={{scale:1.1}} 
+        <button
         onClick={() => setOpenDropdown(true)}>
     
             <CiMenuFries size={32}  className={styles.iconMenu}/>
 
-        </motion.button>
+        </button>
 
         {openDropdown && 
         
-        <motion.ul initial={{height:0, opacity:.5}}
-        animate={{height:'100%', opacity:1}}
-        exit={{height:0, opacity:.4}}
-        transition={{duration:2, type:"spring"}}
+        <ul 
         className={styles.dropdownMenu}>
             <div className={styles.iconCloseContent}>
                 <button className={styles.btnCloseDropdown}
@@ -110,7 +110,7 @@ const NavBar = () => {
 
             <ListItems underline={false}/>
         
-        </motion.ul>}
+        </ul>}
 
         </div>
 

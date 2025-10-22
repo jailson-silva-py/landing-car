@@ -1,0 +1,62 @@
+.card {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: min(90%, 700px);
+    height: min(30%, 200px);
+    padding: 16px;
+    word-break: break-all;
+    
+    hyphens: auto;
+   
+}
+
+.cardTitle {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+    font-size: max(1.5vw, 16px);
+
+}
+
+.cardTitleText {
+
+    letter-spacing: 2px;
+
+}
+
+.cardDescription {
+
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-align: justify;
+    word-spacing: 7px;
+    word-break: keep-all;
+    line-height: 1.5em;
+    font-size: max(1vw, 14px);
+
+
+}
+
+@keyframes rotate {
+
+    to {transform: rotateY(360deg);}
+
+}
+
+.cardTitle svg {
+
+    perspective: 50px;
+    transform-style: preserve-3d;
+    animation: rotate 3s infinite;
+    stroke-width: 1;
+
+}

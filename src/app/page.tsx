@@ -1,25 +1,25 @@
-import SectionProduct from "@/components/SectionProduct/SectionProduct";
+"use client"
 import styles from "./page.module.css";
-import SectionColors from "@/components/SectionColors/SectionColors";
-import SectionCompany from "@/components/SectionCompany/SectionCompany";
+import { Canvas } from "@react-three/fiber";
+import Ferrari from "@/components/FerrariModel/FerrariModel";
+import { Suspense } from "react";
+import { ContactShadows, Environment, Lightformer, OrbitControls } from "@react-three/drei";
+import SectionProduct from "@/components/SectionProduct/SectionProduct";
 
 
 export default function Home() {
 
-  
+ 
+
+
 
   return (
-    <div className={styles.page}>
-    <video src="/video-ferrari.mp4" autoPlay 
-        loop className={styles.productVideo}
-        muted playsInline/>
-     <article className={styles.contentSections}>
-      <SectionProduct/>
-      <SectionColors/>
-      <SectionCompany/>
+    <div className={`content ${styles.page}`}>
 
+    <SectionProduct/>  
 
-     </article>
     </div>
+
+    
   );
 }

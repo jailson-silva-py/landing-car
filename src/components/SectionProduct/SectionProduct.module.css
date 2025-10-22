@@ -1,251 +1,189 @@
 .product {
 
+    position: relative;
     width: 100%;
+    min-height: 100%;
+
+}
+
+.model3dContent {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+
+}
+
+
+.feedbackForUser {
+
+    position: fixed;
+    bottom: 24px;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:4px;
+
+}
+
+@keyframes arrowAnimation {
+
+    from {
+        opacity: 0;
+        transform: translateY(-2px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(2px);
+
+    }
+
+}
+
+.feedbackForUser svg {
+
+    animation: 1s ease-in-out infinite arrowAnimation;
+
+}
+
+.screensContent {
+    z-index: -1;
+    position: relative;
+    top:100vh;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 
 }
 
 .introduction {
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-weight: 300;
+    letter-spacing: 2px;
+    gap:8px;
+    
+
+}
+
+.mainIntroduction {
+
+    font-size: max(3vw, 32px);
+
+}
+
+.subIntroduction {
+
+    font-size: max(1vw, 14px);
+
+}
+
+.firstScreen, .secondScreen, .thirdScreen, .fourthScreen {
+
+    position: absolute;
+    top:0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap:4rem;
-
-}
-
-.textContent {
-
-    width: 80%;
-    text-align: center;
-    font-size: min(calc(2vw + 5vh / 2), 70px);
-    font-weight: 900;
-    line-height: 1.4em;
-
-}
-
-.btnProductModels {
-
-    position: relative;
-    width: 150px;
-    min-height: 45px;
-    height: 45px;
-    padding: 8px;
-    font-weight: 600;
-    box-shadow: 0px 0px 1px 0px var(--default-shadow);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:4px;
-    overflow: hidden;
-    background-color: var(--btn-color);
-
-}
-
-.btnProductModels:hover::after {
-
-    width: 100%;
-
-}
-
-.btnProductModels:hover * {
-
-    position: relative;
-    z-index: 2;
-    font-weight: 900;
-    stroke-width: 4;
-
-}
-
-.btnProductModels::after {
-
-    position: absolute;
-    z-index: 1;
-    top:0;
-    left: 0;
-    content: "";
-    width: 0;
-    height: 100%;
-    background-color: var(--btn-hover);
-    transition: width .6s cubic-bezier(0.23, 1, 0.320, 1);
-
-}
-
-.productModels {
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 30vh;
-
-}
-
-.pictureContent {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap:2rem;
-    padding: 16px;
-    border-radius: 8px;
-    overflow: hidden;
-    width: min(90%, 1200px);
-    height: 500px;
-
-}
-
-.pictureSvg {
-
-    position: relative;
-    top:20px;
-    opacity: .7;
-    border-radius: 50%;
-    flex: 1px 1 1;
-    object-fit: contain;
-    mix-blend-mode: difference;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: contrast(.98) brightness(1.1);
-    user-select: none;
-    pointer-events: none;
-    -webkit-user-drag: none;
-
-}
-
-.pictureSvg img {
-    
-    width: auto;
-    height: auto;
-
  
-}
-
-.productModelsText {
-
-    flex: 1px 1 1;
-    padding: min(4rem, 2vw);
-    font-size: min(22px, 5vw);
-    line-height: 2em;
-    hyphens: auto;
-    word-break: keep-all;
 
 }
 
-.specific {
+.firstScreen {
 
-    position: relative;
-    width: 100%;
-    padding: 4rem 0;
-    box-shadow: 0px 0px 2px 0px var(--default-shadow);
-    min-height: 600px;
-    display: flex;
-    overflow: hidden;
-    padding: min(3vw, 4rem);
-    backdrop-filter: blur(6px);
-    
-}
-
-.specific::after {
-    
-    position: absolute;
-    top:0;
-    left: 0;
-    z-index: 2;
-    content: "";
-    width: 100%;
-    height: 100%;
     background-color: var(--bg-color);
-    opacity: .6;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%);
 
 }
 
-.rightUl, .leftUl {
+.secondScreen {
 
-    z-index: 3;
-    flex: 1px 1 1;
+    
+    background-color: var(--bg-color);
+   
+
+}
+
+.thirdScreen {
+
+    
+    background-color: var(--bg-color);
+    
+}
+
+.fourthScreen {
+
+    
+    background-color: var(--bg-color);
+
+}
+
+.cardContent {
+
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-}
-
-@keyframes rotate {
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-.rightUl svg, .leftUl svg {
-
-    min-width: 32px;
-    min-height: 32px;
-    animation: rotate 1s linear infinite;
-
-}
-
-.rightUl {
-
-    align-items: flex-end;
-
-}
-
-.leftUl {
-
-    align-items: flex-start;
-    justify-content: flex-end;
-
-}
-
-.rightUl li, .leftUl li {
-
-    width: 50%;
-    display: flex;
+    padding: 32px;
     align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
+    gap:32px;
 
 }
 
-@media (max-width:1180) {
+.cardContent > div:nth-child(1) {
 
-    .pictureContent {
-
-        flex-direction: column;
-
-    }
-
-    .specific {
-
-        flex-direction: column;
-        gap:4rem;
-        border-radius: 16px;
-
-    }
-
-    .specific::after {
-
-        height: 50%;
-        clip-path: none;
-    }
+    border-bottom-right-radius: 0;
+    border-left: 1px solid var(--cream);
 
 
-    .rightUl {
+}
 
-        align-items: flex-start;
+.cardContent > div:nth-child(2) {
+
+    border-top-left-radius: 0;
+    transform: translateY(calc(100% - 1px));
+    border-right: 1px solid var(--cream);
+
+}
+
+@media (max-width:1180px) {
+
+    .cardContent {
+       
+        height: 100%;
         width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
 
     }
 
-    .leftUl  li, .rightUl li{
+    .cardContent > div:nth-child(1) {
 
-        width: 100%;
+        margin-right: auto;
+        transform: none;
+     
+
+    }
+  
+    .cardContent > div:nth-child(2) {
+
+        margin-left: auto;
+        transform: none;
 
     }
 

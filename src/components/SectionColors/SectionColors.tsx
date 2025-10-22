@@ -1,5 +1,3 @@
-"use client";
-import { motion } from 'framer-motion'
 import styles from './SectionColors.module.css' 
 import { useState } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
@@ -20,17 +18,12 @@ const SectionColors = () => {
 
 
     return (
-    <motion.section 
+    <section 
     id="#colors" className={styles.colors}>
         
-        <motion.div className={styles.colorsContent} 
-        initial={{opacity:0}}
-        whileInView={{opacity:1}}
-        transition={{delay:1}}
-        viewport={{once:true, amount:'all'}}>
+        <div className={styles.colorsContent} >
             <p className={styles.titleColors}>Escolha sua cor:</p>
-            <motion.img initial={{translateX:-100}}
-            animate={{translateX:0}}
+            <img 
             src={arrayCars[radioId]} 
             key={arrayCars[radioId].toString()}
             alt="Car custom color" />
@@ -52,17 +45,17 @@ const SectionColors = () => {
             <form onSubmit={(e) => {e.preventDefault()}} 
             className={styles.btnBuyContent}>
 
-                <motion.button 
+                <button 
                 type="submit" className={styles.btnBuy}>
                     <span>Buy now</span>
                     <HiArrowRight size={16}/>
-                </motion.button>
+                </button>
 
             </form>
 
-        </motion.div>
+        </div>
 
-    </motion.section>   
+    </section>   
     )
 
 }

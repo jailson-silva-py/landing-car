@@ -2,8 +2,10 @@
 
   --text-color:rgb(221, 213, 213);
   --bg-color: rgb(24, 22, 22);
-  --btn-color: rgb(47, 76, 183);
-  --btn-hover: rgb(71, 92, 163);
+  --ferrari-red: #8B0000;
+  --btn-hover: var(--ferrari-red);
+  --cream:#F5DEB3;
+  --brown-leather: #8B4513;
   --default-shadow: rgba(255, 255, 255, 0.5);
   --hover-accent: hsla(0, 7%, 65%, 0.266);
 }
@@ -16,6 +18,18 @@
 
 body {overflow: visible;}
 
+html::-webkit-scrollbar {
+
+  width: 6px;
+
+}
+
+html::-webkit-scrollbar-thumb {
+
+  background-color: var(--ferrari-red);
+
+}
+
 html,
 body {
 
@@ -23,6 +37,7 @@ body {
   height: 100%;
   behavior: smooth;
   background-color: var(--bg-color);
+  overflow-x: hidden;
 }
 
 body {
