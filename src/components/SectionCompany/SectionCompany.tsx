@@ -5,83 +5,92 @@ const SectionCompany = () => {
     return (
 
         <section className={styles.company} id="company">
-        <div className={styles.container}>
-    
-        <h2>Além da Venda: Curadoria e Confiança</h2>
-        <p className={styles.subtitle}>
-        Conectamos entusiastas a supercarros icônicos através de 
-        processo transparente e verificação rigorosa. Não somos 
-        concessionária oficial — somos especialistas independentes 
-        obcecados por excelência automotiva.
-        </p>
-
-        <div className={styles.processGrid}>
-        <div className={styles.processStep}>
-            
-            <span className={styles.stepNumber}>01</span>
-            <div className={styles.processStepText}> 
-            <h3>Consulta Inicial</h3>
-            <p>Entendemos suas expectativas, perfil de uso e 
-            orçamento realista.</p>
+            <div className={styles.whoWeAre}>
+                <h1>Quem somos</h1>
+                <p>Somos um estúdio independente de engenharia
+                visual e curadoria automotiva. Entregamos
+                experiências digitais de alta performance
+                (UI/3D) e seleção técnica de veículos,
+                com foco em transparência, acessibilidade e
+                métricas objetivas.
+                </p>
             </div>
-        </div>
+            <div className={styles.trust}>
+                <h1>Por que confiar</h1>
+                <ul>
 
-        <div className={styles.processStep}>
+                <li>
+                Processo documentado e auditável (descoberta →
+                protótipo → validação → entrega).
+                </li>
+                <li>
+                Qualidade mensurável (Lighthouse mobile 90+,
+                A11y AA, CLS 0.00 — demo).
+                </li>
+                <li>
+                Rede de especialistas e oficinas parceiras para
+                inspeção e manutenção.
+                </li>
 
-            <span className={styles.stepNumber}>02</span>
-            <div className={styles.processStepText}> 
-            <h3>Busca Especializada</h3>
-            <p>Localizamos veículos com procedência verificada e 
-            histórico documentado.</p>
-            </div>
-            
-        </div>
-
-        <div className={styles.processStep}>
-
-            <span className={styles.stepNumber}>03</span>
-
-            <div className={styles.processStepText}> 
-            <h3>Inspeção Técnica</h3>
-            <p>Vistoria completa ou relatório detalhado com fotos, 
-            vídeos e diagnóstico.</p>
+                </ul>
             </div>
 
-        </div>
+            <div className={styles.whatWeDo}>
 
-        <div className={styles.processStep}>
-            
-            <span className={styles.stepNumber}>04</span>
-            <div className={styles.processStepText}> 
-            <h3>Entrega Segura</h3>
-            <p>Documentação, logística e suporte até o carro estar 
-            no seu nome.</p>
+                <h1>O que fazemos</h1>
+                <ul>
+                    
+                    <li>
+                        <p>
+                        Curadoria 1:1 de cupês V8 de motor
+                        central {'(1999–2005)'}.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                        Relatórios técnicos com histórico, fotos,
+                        vídeo e medições.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                        Entrega assistida: documentação,
+                        logística e suporte pós-compra.
+                        </p>
+                    </li>
+
+                </ul>
+
             </div>
 
-        </div>
-        </div>
+            <div className={styles.guarantees}>
 
-        <div className={styles.guarantees}>
-        <h3>O Que Garantimos</h3>
-        <ul>
-            <li>Verificação de procedência e documentação legal</li>
-            <li>Histórico de manutenção quando disponível</li>
-            <li>Inspeção mecânica pré-entrega</li>
-            <li>Rede de oficinas especializadas parceiras</li>
-            <li>Suporte pós-venda para registro e adaptação</li>
-        </ul>
-        <p className={styles.disclaimer}>
-            *Trabalhamos exclusivamente com veículos de procedência 
-            comprovada e documentação regular.
-        </p>
-        </div>
+                <h1>Garantias</h1>
+                <ul>
+                    
+                    <li>
+                        <p>
+                        Procedência e documentação verificadas.
+                        </p>
+                    </li>
 
-        <div className={styles.cta}>
-        <h3>Pronto para encontrar seu próximo supercarro?</h3>
-        <button>Agendar Consulta</button>
-        </div>
+                    <li>
+                        <p>
+                        Inspeção mecânica pré-entrega.
+                        </p>
+                    </li>
 
-        </div>
+                    <li>
+                        <p>
+                        Suporte pós-venda para registro e adaptação.
+                        </p>
+                    </li>
+
+                </ul>
+
+            </div>
         </section>
 
     )
