@@ -10,6 +10,7 @@ import gsap from 'gsap'
 import { ScrollTrigger, TextPlugin } from 'gsap/all';
 import Card from '../Card/Card';
 import { FiCrosshair, FiTarget, FiTool, FiWind, FiZap } from 'react-icons/fi';
+import * as THREE from 'three'
 
 
 gsap.registerPlugin(useGSAP)
@@ -33,26 +34,11 @@ const SectionProduct = () => {
           scrub:1,
           snap:1/6,
           pin:true,
-          //pinType:'transform'
-  
 
         },
 
       })
 
-      // gsap.to(`.${styles.screensContent}`,{
-
-      //   scrollTrigger:{
-
-      //     markers:true,
-      //     trigger:`.${styles.screensContent}`,
-      //     start:`top top`,
-      //     end:`+=${window.innerHeight * 4}`,
-      //     scrub:1,
-      //     snap:0.25 ,
-      //     pin:true,
-         
-      //   },
 
       tl.to(`.${styles.mainIntroduction}`, {
 
@@ -104,10 +90,8 @@ const SectionProduct = () => {
         <section id="product" className={styles.product}>
         <div className={styles.model3dContent}>
             
-        <Canvas shadows 
-      gl={{
-        logarithmicDepthBuffer:true, antialias:false}}
-      camera={{position:[1, 2.5, 10], fov:25}}>
+        <Canvas shadows gl={{antialias:false}}
+      camera={{position:[2,0,-5], fov:50}}>
         <ambientLight intensity={0.2}  position={[1, 10, 10]}/>
         <hemisphereLight intensity={0.2}/>
         <mesh scale={4} position={[3, -1.161, -1.5]} rotation={[-Math.PI / 2, 0, Math.PI / 2.5]}>
@@ -139,7 +123,7 @@ const SectionProduct = () => {
         {/* Key */}
         <Lightformer form="ring" color="red" intensity={10} scale={2} position={[10, 5, 10]} onUpdate={(self) => self.lookAt(0, 0, 0)} />
       </Environment>
-        <OrbitControls maxPolarAngle={1.5}  autoRotate={true} rotateSpeed={0.3}
+        <OrbitControls maxPolarAngle={1.5} autoRotate rotateSpeed={0.3}
         enableDamping={true}/>
         <ContactShadows frames={1} opacity={1} scale={500} 
         blur={1.2} far={1000} resolution={1024}/>
