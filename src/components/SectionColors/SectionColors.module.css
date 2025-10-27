@@ -4,53 +4,87 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
+    background-color: #0a0e1a;
+    background-image: 
+    /* Grid principal */
+    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px),
+    /* Grid secundário (mais fino) */
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 
+    80px 80px,
+    80px 80px,
+    20px 20px,
+    20px 20px;
+    background-position: 
+    0 0,
+    0 0,
+    0 0;
     
 }
 
+
+
 .colorsContent  {
 
+    margin: auto 0;
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 2rem;
+    padding: 4rem;
     z-index: 2;
-    width:min(99%, 900px);
+    width:90%;
     height: 80vh;
-    box-shadow: 0px 0px 2px 0px var(--default-shadow);
-    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 3px 1px;
     border-radius: 16px;
+    background-color: transparent;
+    opacity: .8;
  
+
+}
+
+.initialColorsContent {
+
+    flex: 1 1 1px;
+    width: max-content;
+    height: 100%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    gap:32px;
 
 }
 
 .titleColors {
 
-    font-weight: 600;
-    font-size: 22px;
+    opacity: .7;
+    order: -2;
+    margin-bottom: auto;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 24px;
     font-style: italic;
 
 }
 
-.colorsContent img {
+.modelContent {
 
-    object-fit: cover;
-    filter: saturate(1.2) sepia(0.3) brightness(.8) contrast(1.2);
-    width: max(20vw, 300px);
-    flex: 1px 8 1;
-    user-select: none;
-    -webkit-user-drag: none;
+    order: 0;
+    flex: 3 1 300px;
+    height: 100%;
 
 }
 
+
 .radiosContent {
 
-    align-self: flex-start;
-    flex:20px 2 1;
+    margin-top: auto;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: 1rem;
 
@@ -111,53 +145,43 @@
 
 }
 
-@keyframes pular {
-
-    from {transform: scale(1.07);}
-    to {transform: scale(1);}
-
-}
 
 .btnBuyContent {
 
-    width: 100%;
-
-}
-
-.btnBuy {
-
-    margin-top: 3rem;
     margin-left: auto;
+    margin-top: auto;
+    flex: 1 1 1px;
+    width: max-content;
+    margin-top: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:.4rem;
-    border-radius: 4px;
-    width: 150px;
-    background: var(--ferrari-color);
-    font-weight: 600;
-    box-shadow: 0px 0px 1px 1px var(--default-shadow);
-    padding: 8px;
-    animation: .6s pular infinite ease  ;
+    align-items: flex-end;
+    justify-content: flex-end;
 
 }
 
-.btnBuy:hover {
+@media (max-width:1180px) {
 
-    font-weight: 700;
-    animation: none;
+    .colorsContent {
+    
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 2rem;
+
+    }
+
+    .modelContent {
+
+        width: 100%;
+
+    }
+
+    .initialColorsContent {
+
+        justify-content: flex-start;
+        height: none;
+        flex: 1 1 1px;
+
+    }
 
 }
 
-.btnBuy:hover svg{
-
-    transform: translateX(5px);
-
-}
-
-.btnBuy svg {
-
-    transition: transform .2s cubic-bezier(0.47, 0, 0.745, 0.715);
-    stroke-width: 1;
-
-}

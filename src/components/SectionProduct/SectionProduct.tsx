@@ -8,6 +8,7 @@ import Card from '../Card/Card';
 import { FiCrosshair, FiTarget, FiTool, FiWind, FiZap } from 'react-icons/fi';
 import Image from 'next/image';
 import { HiOutlineArrowRight } from 'react-icons/hi2';
+import ButtonBuy from '../ButtonBuy/ButtonBuy';
 
 
 gsap.registerPlugin(useGSAP)
@@ -24,7 +25,7 @@ const SectionProduct = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
 
-          markers:true,
+          
           trigger:`.${styles.screensContent}`,
           start:`top top`,
           end:`+=1000%`,
@@ -46,38 +47,38 @@ const SectionProduct = () => {
 
       }, 0).to(`.${styles.subIntroduction}`, {
 
-        text:'— Ícone da virada de milênio',
+        text:{value:'— Ícone da virada de milênio', speed: 3},
         ease:"none",
 
-      }, 2)
+      }, 1)
 
-     
+      
 
       tl.fromTo(`.${styles.firstScreen}`, 
         {translateX:'-101%'},
         {translateX:0},
-        
+        2
 
       )
 
       tl.fromTo(`.${styles.secondScreen}`, 
         {translateX:'101%'},
         {translateX:0},
-       10
+       3
 
       )
 
       tl.fromTo(`.${styles.thirdScreen}`, 
         {translateY:'-101%'},
         {translateY:0},
-        14
+        4
 
       )
 
       tl.fromTo(`.${styles.fourthScreen}`, 
         {translateY:'101%'},
         {translateY:0},
-        18
+        5
 
       )
     })
@@ -90,15 +91,12 @@ const SectionProduct = () => {
         <Image priority fill
         src="/car-background.jpg" alt="background" 
         className={styles.introductionBackground}/>
-        <button className={styles.btnBuyNow}>
-
-          <span>Buy now</span>
-          <HiOutlineArrowRight size={24}/>
-        </button>
+        <ButtonBuy Icon={HiOutlineArrowRight} absPos/>
 
         </div>
 
       <div className={styles.screensContent}>
+
         <div className={styles.introduction}>
 
           <p className={styles.mainIntroduction}>

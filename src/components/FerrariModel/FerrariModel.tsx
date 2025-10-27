@@ -1,16 +1,38 @@
+import { colorsCar } from "@/types/colorCars"
 import { useGLTF } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
-import { JSX, useEffect, useMemo, useRef } from "react"
+import { useEffect } from 'react'
+import { JSX } from "react"
 import * as THREE from 'three'
 
-const Ferrari = (props:JSX.IntrinsicElements['group']) => {
-    const { scene } = useGLTF('/ferrari.glb')
+type Iprops =  { 
 
-    
+    colorState: colorsCar,
+
+} & JSX.IntrinsicElements['group']
+
+const objCores = {
+
+    red:'#8f1515',
+    purple:'#69107b',
+    yellow:'#745a05',
+    green:'#0b5308'
+
+}
+
+const Ferrari = ({colorState, ...props}:Iprops) => {
+    const { scene, materials } = useGLTF('/ferrari.glb')
+
+    useEffect(() => {
+
+        const m  = (materials.Vehicle_Exterior_mm_ext as THREE.MeshStandardMaterial)
+        m.color.set(new THREE.Color(objCores[colorState]))
+        m.map = null
+
+    }, [colorState])
     
     return (
 
-    <primitive object={scene} {...props}/>
+    <primitive object={scene} { ...props}/>
     
     )
 }

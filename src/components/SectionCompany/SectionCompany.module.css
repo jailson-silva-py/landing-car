@@ -1,14 +1,38 @@
 .company {
 
     margin: 0 auto;
-    position: relative;
-    top:calc(100vh);
+    padding: 4rem 5vw;
     min-height: 100vh;
-    max-width: 900px;
-    width: 90%;
+    width: 100%;
+
     letter-spacing: 2px;
     font-weight: 300;
+    background: linear-gradient(
+    180deg,
+    #0a0e1a 0%,           /* Conecta com Colors */
+    #0d1520 25%,
+    #121820 50%,
+    #0f1419 75%,
+    #0a0d15 100%
+  );
+  position: relative;
 
+}
+
+
+.company::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 212, 255, 0.4) 0%,
+    rgba(0, 212, 255, 0.1) 50%,
+    transparent 100%
+  );
 }
 
 .company svg {

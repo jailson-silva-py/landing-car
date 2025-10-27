@@ -18,7 +18,7 @@ const SectionCompany = () => {
             scrollTrigger: {
 
                 trigger:'#company',
-                markers:true,
+                
                 start:'20% center',
                 end:'bottom center'
 
@@ -89,10 +89,8 @@ const SectionCompany = () => {
                     <span>Métricas públicas por projeto</span>
                 </li>
 
-                <li>
-            
-                
                 <li className={styles.trustListItem}>
+            
                     <div>
                     <div className={styles.trustSubListTitleContent}>
                     <span>{'>>>'}</span>
@@ -120,9 +118,6 @@ const SectionCompany = () => {
 
                     </ul>
                     </div>
-
-                </li>
-
                   
                 
                 </li>

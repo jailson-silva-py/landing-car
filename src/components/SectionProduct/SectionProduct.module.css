@@ -96,43 +96,13 @@
 }
 
 
-.feedbackForUser {
-
-    position: fixed;
-    bottom: 24px;
-    right: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:4px;
-
-}
-
-@keyframes arrowAnimation {
-
-    from {
-        opacity: 0;
-        transform: translateY(-2px);
-
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(2px);
-
-    }
-
-}
-
-.feedbackForUser svg {
-
-    animation: 1s ease-in-out infinite arrowAnimation;
-
-}
-
 .screensContent {
+
+    background: url('/background-screens.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: -1;
-   
     height: 100vh;
     width: 100%;
     display: flex;
@@ -154,6 +124,7 @@
     font-weight: 300;
     letter-spacing: 2px;
     gap:8px;
+    text-shadow: 2px 2px black;
     
 
 }
@@ -173,41 +144,16 @@
 .firstScreen, .secondScreen, .thirdScreen, .fourthScreen {
 
     position: absolute;
+    background-color: transparent;
     top:0;
     left: 0;
     width: 100%;
     height: 100vh;
+    backdrop-filter: blur(8px);
  
 
 }
 
-.firstScreen {
-
-    background-color: var(--bg-color);
-
-}
-
-.secondScreen {
-
-    
-    background-color: var(--bg-color);
-   
-
-}
-
-.thirdScreen {
-
-    
-    background-color: var(--bg-color);
-    
-}
-
-.fourthScreen {
-
-    
-    background-color: var(--bg-color);
-
-}
 
 .cardContent {
 
@@ -217,7 +163,7 @@
     align-items: center;
     justify-content: center;
     width: 90%;
-    height: 100%;
+    height: 80%;
     gap:32px;
 
 }

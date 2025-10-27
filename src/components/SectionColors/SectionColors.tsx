@@ -1,50 +1,148 @@
 import styles from './SectionColors.module.css' 
-import { useState } from 'react';
-import { HiArrowRight, HiOutlineArrowDown } from 'react-icons/hi';
+import { useEffect, useState } from 'react';
 import { ContactShadows, Environment, Lightformer, OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Ferrari from '../FerrariModel/FerrariModel';
+import ButtonBuy from '../ButtonBuy/ButtonBuy';
+import { HiOutlineArrowRight } from 'react-icons/hi2';
+import { colorsCar } from '@/types/colorCars';
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 
-const arrayCars = [
+gsap.registerPlugin(useGSAP)
 
-    '/ferrari-red.png',
-    '/ferrari-green.png',
-    '/ferrari-yellow.png',
-    '/ferrari-purple.png',
+const arrayCars:Array<colorsCar> = [
+
+    'red',
+    'green',
+    'yellow',
+    'purple',
 
 ]
+
 
 const SectionColors = () => {
 
 
     const [radioId, setRadioId] = useState(0)
+    const [color, setColor] = useState<colorsCar>('red')
+
+    useGSAP(() => {
+
+      gsap.to(`.${styles.colors}`, {
+      backgroundPosition: '0px 50px',
+      duration: 30,
+      ease: 'none',
+      repeat: -1,
+      yoyo: true
+      });
+
+      gsap.fromTo(`.${styles.colorsContent}`, {opacity:0}, {
+
+        scrollTrigger:{
+
+          trigger:`.${styles.colors}`,
+          start:'20% center',
+          end:'+=100vh',
+          
+          scrub:true
+
+        },
+        opacity:1
+
+      })
+
+      gsap.fromTo(`.${styles.colorsContent}`, {translateY:'-200%',}, {
+
+        scrollTrigger:{
+
+          trigger:`.${styles.colors}`,
+          start:'30% center',
+          end:'+=100vh',
+          
+          scrub:true,
+          pin:true,
+          snap:1,
+
+        },
+
+        ease:'bounce',
+        translateY:0,
+        zIndex:2,
+
+      })
+
+    })
+
+    useEffect(() => {
+        
+        setColor(arrayCars[radioId])
+
+
+    }, [radioId])
 
 
     return (
     <section 
-    id="#colors" className={styles.colors}>
-            <div className={styles.model3dContent}>
+    id="colors" className={styles.colors}>
+         
+        <div className={styles.colorsContent} >
+            <div className={styles.initialColorsContent}>
+                <p className={styles.titleColors}>
+                Customize sua 360v Moderna:
+                </p>
+                <div className={styles.radiosContent}>
+                
+                {arrayCars.map((_, index) => (
+
+                <div key={index} className={`${styles.colorContent}
+                ${radioId === index ? styles.selectedColor: ""}`}>
+                <input type="radio" name="colors" value={index}
+                onChange={() => setRadioId(index)}/>
+                </div>
+
+                ))}
+                
+
+                </div>
+            </div>
             
-        <Canvas shadows gl={{antialias:false}}
-      camera={{position:[2,0,-5], fov:50}}>
-        <ambientLight intensity={0.2}  position={[1, 10, 10]}/>
-        <hemisphereLight intensity={0.2}/>
-        <mesh scale={4} position={[3, -1.161, -1.5]} rotation={[-Math.PI / 2, 0, Math.PI / 2.5]}>
-        <ringGeometry args={[0.9, 1, 4, 1]} />
-        <meshStandardMaterial color="white" roughness={0.75} />
-        </mesh>
-        <mesh scale={4} position={[-3, -1.161, -1]} rotation={[-Math.PI / 2, 0, Math.PI / 2.5]}>
-        <ringGeometry args={[0.9, 1, 3, 1]} />
-        <meshStandardMaterial color="white" roughness={0.75} />
-        </mesh>
-        <directionalLight castShadow={true} position={[0, 10, 10]}
-        intensity={1.5} shadow-mapSize={[2048, 2048]}/>
+
+            
+        <div className={styles.modelContent}>
+        <Canvas shadows gl={{antialias:true}}
+      camera={{position:[2,-1,6], fov:50}}>
+        
+        <hemisphereLight intensity={0.2} />
+        
+
+        <ambientLight intensity={0.35}/>
+        <directionalLight
+          position={[2, 8, 5]}
+          intensity={3}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-radius={6}
+        />
+ 
         <Suspense fallback={null}>
-        <Ferrari position={[0, -1.2, 0]} rotation={[0, Math.PI / 1.5, 0]} scale={1.2}/>
-        <color attach="background" args={['#15151a']}/>
+        <Ferrari colorState={color} position={[0, -1.205, 0]} scale={1.2}/>
+        
         </Suspense>
-        <Environment resolution={512} >
+         <mesh rotation-x={-Math.PI / 2} 
+         position={[0, -1.2, 0]}>
+          <circleGeometry args={[3, 96]} />
+          <meshStandardMaterial opacity={0.2}
+          roughness={0.95}
+          color={"#0a0829"} map={null}
+          emissive="#0e0a52" emissiveIntensity={0.1}
+          
+          metalness={0.2} />
+        </mesh>
+        <ContactShadows blur={2.5} position={[0, -1.17, 0]}
+        scale={5} far={2} frames={Infinity} opacity={0.2}/>
+        <Environment resolution={1024}>
         {/* Ceiling */}
         <Lightformer intensity={0.5} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} />
         <Lightformer intensity={0.5} rotation-x={Math.PI / 2} position={[0, 4, -6]} scale={[10, 1, 1]} />
@@ -61,43 +159,15 @@ const SectionColors = () => {
       </Environment>
         <OrbitControls maxPolarAngle={1.5} autoRotate rotateSpeed={0.3}
         enableDamping={true}/>
-        <ContactShadows frames={1} opacity={1} scale={500} 
-        blur={1.2} far={1000} resolution={1024}/>
+        
       </Canvas>
-      <div className={styles.feedbackForUser}>
-        <span>Click to scroll</span>
-        <HiOutlineArrowDown size={16} className={styles.arrowIcon}/>
       </div>
-      </div>
-        <div className={styles.colorsContent} >
-            <p className={styles.titleColors}>Escolha sua cor:</p>
-            <img 
-            src={arrayCars[radioId]} 
-            key={arrayCars[radioId].toString()}
-            alt="Car custom color" />
+
             
-            <div className={styles.radiosContent}>
-            {arrayCars.map((_, index) => (
-
-            <div key={index} className={`${styles.colorContent}
-            ${radioId === index ? styles.selectedColor: ""}`}>
-            <input type="radio" name="colors" value={index}
-            onChange={() => setRadioId(index)}/>
-            </div>
-
-            ))}
-            
-
-            </div>
-
             <form onSubmit={(e) => {e.preventDefault()}} 
             className={styles.btnBuyContent}>
 
-                <button 
-                type="submit" className={styles.btnBuy}>
-                    <span>Buy now</span>
-                    <HiArrowRight size={16}/>
-                </button>
+            <ButtonBuy Icon={HiOutlineArrowRight}/>
 
             </form>
 
