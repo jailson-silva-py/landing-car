@@ -44,7 +44,7 @@ const SectionColors = () => {
 
           trigger:`.${styles.colors}`,
           start:'20% center',
-          end:'+=100vh',
+          end:'+=100%',
           
           scrub:true
 
@@ -53,24 +53,23 @@ const SectionColors = () => {
 
       })
 
-      gsap.fromTo(`.${styles.colorsContent}`, {translateY:'-200%',}, {
+      gsap.fromTo(`.${styles.colorsContent}`, {translateX:'-200%',}, {
 
         scrollTrigger:{
 
           trigger:`.${styles.colors}`,
-          start:'30% center',
-          end:'+=100vh',
-          
+          start:'top top',
+          end:'+=100%',
           scrub:true,
           pin:true,
+        
           snap:1,
 
         },
-
-        ease:'bounce',
-        translateY:0,
+        ease:'none',
+        translateX:0,
         zIndex:2,
-
+        duration:1
       })
 
     })

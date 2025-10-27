@@ -6,6 +6,25 @@
 
 }
 
+@keyframes neonShadow {
+
+    from {
+    box-shadow:
+      0 0 0 1px var(--default-shadow),     /* 1 */
+      3px 3px 0 0 var(--default-shadow),   /* 2 */
+      10px 0 0 0 var(--bg-color-cyan),               /* 3 placeholder */
+      10px 0 0 0 var(--bg-color-cyan);               /* 4 placeholder */
+    }
+    to {
+    box-shadow:
+      0 0 0 1px var(--default-shadow),     /* 1 */
+      0 0 4px 0 var(--default-shadow),   /* 2 */
+      0px 0px 1px 1px rgba(0, 0, 255, 0.3),      /* 3 */
+      -3px -3px 10px 0 rgba(0, 0, 255, 0.3);/* 4 */
+    }
+
+}
+
 .btnBuyNow {
 
   
@@ -16,11 +35,11 @@
     font-weight: 500;
     backdrop-filter: blur(8px);
     border-radius: 8px;
-    box-shadow: 1px 1px 0px 1.5px var(--default-shadow);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    animation: neonShadow 1s alternate-reverse infinite forwards;
     gap:8px;
 
 }
@@ -51,7 +70,7 @@
     content: "";
     width: 0;
     height: 100%;
-    background-color: var(--ferrari-red);
+    background-color: var(--btn-hover);
     transition: width .4s ease-in, opacity .4s ease-in;
     
 
@@ -60,6 +79,7 @@
 .btnBuyNow:hover > svg {
 
     animation: none;
+    stroke-width: 2;
 
 }
 
@@ -67,6 +87,7 @@
 
     position: relative;
     z-index: 1;
+    font-weight: 700;
 
 }
 

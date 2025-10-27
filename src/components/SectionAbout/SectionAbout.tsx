@@ -9,31 +9,38 @@ import {
   HiOutlineSignal               // Status
 } from 'react-icons/hi2'
 import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from 'react';
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrambleTextPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 const SectionAbout = () => {
 
-    useGSAP(() => {
+    useEffect(() => {
 
+        ScrollTrigger.refresh()
+
+    }, [])
+    useGSAP(() => {
+        
         const tl = gsap.timeline({
 
             scrollTrigger: {
 
-                trigger:`.${styles.about}`,
+                invalidateOnRefresh:true,
+                trigger:`#about`,
                 scrub:1,
-                
                 start: 'top top',
+                end:() => window.innerHeight * 10,
                 pin:true,        
                 pinSpacing:false,
-                end:'+=1000%',
+                
             
             }
-
-
         })
-
+   
         tl.to(`.aboutParagraph`, {
 
             scrambleText: {

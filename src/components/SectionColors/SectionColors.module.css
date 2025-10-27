@@ -38,9 +38,11 @@
     z-index: 2;
     width:90%;
     height: 80vh;
-    box-shadow: 0px 0px 3px 1px;
+    box-shadow: 0px 0px 0px 1px var(--default-shadow), 
+    4px 4px 0px 0px var(--default-shadow), -2px -2px 0px 0px var(--default-shadow);
+    background-color: var(--bg-color-cyan);
+    backdrop-filter: blur(1px);
     border-radius: 16px;
-    background-color: transparent;
     opacity: .8;
  
 
@@ -124,24 +126,32 @@
 .colorContent:nth-child(1) {
 
     background-color: rgb(207, 14, 14);
+    border-radius: 50%;
+    opacity: .8;
 
 }
 
 .colorContent:nth-child(2) {
 
     background-color: rgb(23, 149, 25);
+    border-radius: 50%;
+    opacity:.8;
 
 }
 
 .colorContent:nth-child(3) {
 
     background-color: rgb(153, 178, 25);
+    border-radius: 50%;
+    opacity:.8;
 
 }
 
 .colorContent:nth-child(4) {
 
     background-color: rgb(95, 9, 98);
+    border-radius: 50%;
+    opacity:.8;
 
 }
 
