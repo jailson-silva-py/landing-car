@@ -1,3 +1,4 @@
+"use client";
 import { colorsCar } from "@/types/colorCars"
 import { useGLTF } from "@react-three/drei"
 import { useEffect } from 'react'
@@ -31,7 +32,7 @@ const Ferrari = ({colorState, ...props}:Iprops) => {
     }, [colorState])
     
     return (
-
+        
     <primitive object={scene} { ...props}/>
     
     )

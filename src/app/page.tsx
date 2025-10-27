@@ -1,15 +1,14 @@
-"use client"
 import styles from "./page.module.css";
-import SectionProduct from "@/components/SectionProduct/SectionProduct";
-import SectionCompany from "@/components/SectionCompany/SectionCompany";
-import SectionColors from "@/components/SectionColors/SectionColors";
-import SectionAbout from "@/components/SectionAbout/SectionAbout";
+import dynamic from "next/dynamic";
+
+const SectionProduct = dynamic(() => import("@/components/SectionProduct/SectionProduct"))
+const SectionCompany = dynamic(() => import("@/components/SectionCompany/SectionCompany"))
+const SectionColors = dynamic(() => import("@/components/SectionColors/SectionColors"))
+const SectionAbout = dynamic(() => import("@/components/SectionAbout/SectionAbout"))
+
 
 
 export default function Home() {
-
- 
-
 
 
   return (

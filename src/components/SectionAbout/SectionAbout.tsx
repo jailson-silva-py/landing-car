@@ -10,6 +10,7 @@ import {
 } from 'react-icons/hi2'
 import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from 'react';
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrambleTextPlugin)
@@ -17,10 +18,12 @@ gsap.registerPlugin(ScrollTrigger)
 
 const SectionAbout = () => {
 
+
+
+   
+    useGSAP(() => {
     window.addEventListener('load', () => ScrollTrigger.refresh())
     ScrollTrigger.normalizeScroll({allowNestedScroll:true, momentum:1})
-    useGSAP(() => {
-        
         const tl = gsap.timeline({
 
             scrollTrigger: {
@@ -29,8 +32,7 @@ const SectionAbout = () => {
                 trigger:`#about`,
                 scrub:1,
                 start: 'top top',
-                end:() => window.innerHeight,
-               
+                end:() => window.innerHeight * 2,
                 
             
             }

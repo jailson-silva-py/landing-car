@@ -17,6 +17,7 @@ gsap.registerPlugin(TextPlugin)
 
 const SectionProduct = () => {
 
+  
     useGSAP(() => {
       window.addEventListener('load', () => ScrollTrigger.refresh())
       ScrollTrigger.normalizeScroll({ allowNestedScroll: true, momentum: 1 })

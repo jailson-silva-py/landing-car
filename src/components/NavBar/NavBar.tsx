@@ -72,7 +72,7 @@ const NavBar = () => {
 
     </li>
 
-    </>)}, [hoveredItem])
+    </>)}, [hoveredItem, openDropdown])
 
     return (
 
