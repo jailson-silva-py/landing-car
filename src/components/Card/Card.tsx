@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { IconType } from 'react-icons'
 import styles from './Card.module.css'
 import { useGSAP } from '@gsap/react'

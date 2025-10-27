@@ -1,3 +1,4 @@
+"use client";
 import styles from './SectionColors.module.css' 
 import { useEffect, useState } from 'react';
 import { ContactShadows, Environment, Lightformer, OrbitControls } from '@react-three/drei';
