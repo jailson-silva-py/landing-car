@@ -36,11 +36,9 @@ const Card = ({title, text, Icon, newClass}:Iprops) => {
                     text:{
 
                         value:title,
-                        speed:2
 
-                    }
-                    
-
+                    },
+                    duration:.5
                     })
 
                     gsap.to(descriptionActual, {

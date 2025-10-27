@@ -31,8 +31,8 @@ const SectionColors = () => {
     useGSAP(() => {
 
       gsap.to(`.${styles.colors}`, {
-      backgroundPosition: '0px 50px',
-      duration: 30,
+      backgroundPosition: '0px 500px',
+      duration:10,
       ease: 'none',
       repeat: -1,
       yoyo: true

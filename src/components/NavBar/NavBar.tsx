@@ -8,7 +8,8 @@ import { Big_Shoulders_Stencil } from "next/font/google"
 
 const kapakana = Big_Shoulders_Stencil({
 
-    weight:['400'],
+    weight:['100', '100', '300', 
+        '400', '500', '600', '700', '900'],
     display:'swap',
     subsets:['latin']
 
@@ -67,7 +68,7 @@ const NavBar = () => {
 
     <li {...props}>
 
-    <Link href="#book-a-call" replace>Book a call</Link>
+    <Link href="mailto:voce@dominio.com?subject=Agendar%20call&body=Oi,\nQuero agendar seu serviço ...." replace>Book a call</Link>
 
     </li>
 

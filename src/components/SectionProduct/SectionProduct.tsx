@@ -47,7 +47,8 @@ const SectionProduct = () => {
 
       }, 0).to(`.${styles.subIntroduction}`, {
 
-        text:{value:'— Ícone da virada de milênio', speed: 3},
+        text:{value:'— Ícone da virada de milênio'},
+        duration:1,
         ease:"none",
 
       }, 1)
